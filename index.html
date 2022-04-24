@@ -1,0 +1,82 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Parth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <img src="logo.png" class="logo">
+        <div class="content">
+            <!-- <h3>ParthSolution</h3> -->
+            <p>Website is Under Construction</p>
+            <h1>We're <span>
+                    Launching
+                </span>
+                Soon</h1>
+
+            <div class="launch-time">
+                <div>
+                    <p id="days">00</p>
+                    <span>Days</span>   
+                </div>
+                <div>
+                    <p id="hours">00</p>
+                    <span>Hours</span>   
+                </div>
+                <div>
+                    <p id="minutes">00</p>
+                    <span>Minutes</span>   
+                </div>
+                <div>
+                    <p id="seconds">00</p>
+                    <span>Seconds</span>   
+                </div>
+            </div>
+            <a href="https://www.youtube.com">
+                <button type="button">Learn More <img src="triangle.png" ></button>
+            </a>
+        </div>
+        <img src="rocket.png" class="rocket">
+    </div>
+    <script>
+        let countdowndate=new Date("28 April 2022 00:00:00").getTime();
+        var x = setInterval(function(){
+            let nowdate= new Date().getTime();
+            var totalsecond=((countdowndate-nowdate) / 1000);
+
+            let days= Math.floor(totalsecond /3600 /24);
+            let hours= Math.floor(totalsecond/3600) % 24;
+            let minutes= Math.floor(totalsecond / 60) % 60;
+            let seconds= Math.floor(totalsecond) % 60;
+
+            document.getElementById("days").innerHTML=formattime(days);
+            document.getElementById("hours").innerHTML=formattime(hours);
+            document.getElementById("minutes").innerHTML=formattime(minutes);
+            document.getElementById("seconds").innerHTML=formattime(seconds);
+
+            if(totalsecond < 0){
+            console.log("hello");
+            clearInterval(x);
+            document.getElementById("days").innerHTML="00";
+            document.getElementById("hours").innerHTML="00";
+            document.getElementById("minutes").innerHTML="00";
+            document.getElementById("seconds").innerHTML="00";
+        }
+        },1000);
+
+        function formattime(time){
+           return (time < 10) ? (`0${time}`) : time; 
+        }
+      
+    </script>
+</body>
+
+</html>
